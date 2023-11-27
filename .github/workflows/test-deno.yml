@@ -23,25 +23,25 @@ jobs:
       #   run: deno fmt --check
 
       - name: Build Supabase Functions
-        run: deno run --no-check ./supabase/functions/ai-chat/index.ts
+        run: deno run --no-check --allow-net ./supabase/functions/ai-chat/index.ts
 
       - name: Build Supabase Functions
-        run: deno run --no-check ./supabase/functions/ai-quote/index.ts
+        run: deno run --no-check --allow-net ./supabase/functions/ai-quote/index.ts
         
       - name: Build Supabase Functions
-        run: deno run --no-check ./supabase/functions/ai-scheduling/index.ts
+        run: deno run --no-check --allow-net ./supabase/functions/ai-scheduling/index.ts
 
       - name: Build Supabase Functions
-        run: deno run --no-check ./supabase/functions/apple-calender-sync/index.ts
+        run: deno run --no-check --allow-net ./supabase/functions/apple-calender-sync/index.ts
 
       - name: Build Supabase Functions
-        run: deno run --no-check ./supabase/functions/google-calender-sync/index.ts
+        run: deno run --no-check --allow-net ./supabase/functions/google-calender-sync/index.ts
 
       - name: Build Supabase Functions
-        run: deno run --no-check ./supabase/functions/openai-completion/index.ts
+        run: deno run --no-check --allow-net ./supabase/functions/openai-completion/index.ts
 
       - name: Build Supabase Functions
-        run: deno run --no-check ./supabase/functions/rescheduling/index.ts
+        run: deno run --no-check --allow-net ./supabase/functions/rescheduling/index.ts
 
       - name: Test Supabase Functions
         run: deno test --allow-none
