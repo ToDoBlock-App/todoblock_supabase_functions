@@ -24,5 +24,8 @@ jobs:
 
       # Optimal wäre ein Build auch, Entweder über Deno Run oder über SUPABASE CLI
 
-      - name: Test Supabase Functions
+      - name: Build Function
+        run: deno run 
+
+      - name: Test Functions
         run: deno test --allow-none
