@@ -30,8 +30,8 @@ jobs:
 
       # Optimal wäre ein Build auch, Entweder über Deno Run oder über SUPABASE CLI
 
-      # - name: Build Function
-      #   run: deno run 
+      - name: Build Function
+        run: deno run --allow-net ./../../supabase/functions/ai-chat/index.ts
 
       - name: Test Functions
         run: deno test --allow-none
