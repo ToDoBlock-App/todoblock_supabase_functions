@@ -1,0 +1,50 @@
+name: Test Deno Module
+
+on: 
+  push:
+    branches: 
+      - '**' 
+  pull_request:
+    branches: 
+      - '**' 
+
+env:
+  SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+  PROJECT_ID: fwvowwobldcklheidiwy
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Git Checkout Deno Module
+        uses: actions/checkout@v2
+
+      - name: Use Deno Version 1.8.2
+        uses: denoland/setup-deno@v1
+        with:
+          deno-version: "1.8.2"
+
+      # - name: Lint Deno Module
+      #   run: deno fmt --check
+
+      # Optimal wäre ein Build auch, Entweder über Deno Run oder über SUPABASE CLI
+
+      # - name: Build Function
+      #   run: deno run 
+
+      - name: Test Functions
+        run: deno test --allow-none
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build-and-test
+    if: github.ref == 'refs/heads/main'
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: supabase/setup-cli@v1.2.0
+        with:
+          version: latest
+
+      - run: supabase functions deploy --project-ref $PROJECT_ID
