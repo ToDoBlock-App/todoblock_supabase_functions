@@ -20,10 +20,12 @@ jobs:
       - name: Git Checkout Deno Module
         uses: actions/checkout@v2
 
-      - name: Use recent Deno Version
+      - name: Use Deno Version
         uses: denoland/setup-deno@v1
         with:
           deno-version: "1.8.2"
+
+      - name: Upgrade to recent Version
         run: deno upgrade
 
       # - name: Lint Deno Module
