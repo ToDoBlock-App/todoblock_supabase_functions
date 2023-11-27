@@ -20,18 +20,37 @@ jobs:
       - name: Git Checkout Deno Module
         uses: actions/checkout@v2
 
-      - name: Use Deno Version 1.8.2
+      - name: Use Deno Version
         uses: denoland/setup-deno@v1
         with:
           deno-version: "1.8.2"
 
+      - name: Upgrade to recent Version
+        run: deno upgrade
+
       # - name: Lint Deno Module
       #   run: deno fmt --check
 
-      # Optimal wäre ein Build auch, Entweder über Deno Run oder über SUPABASE CLI
+      - name: Compile Function 1
+        run: deno compile --allow-net ./supabase/functions/ai-chat/index.ts
 
-      # - name: Build Function
-      #   run: deno run 
+      - name: Compile Function 2
+        run: deno compile --allow-net ./supabase/functions/ai-quote/index.ts
+
+      - name: Compile Function 3
+        run: deno compile --allow-net ./supabase/functions/ai-scheduling/index.ts
+
+      - name: Compile Function 4
+        run: deno compile --allow-net ./supabase/functions/apple-calender-sync/index.ts
+
+      - name: Compile Function 5
+        run: deno compile --allow-net ./supabase/functions/google-calender-sync/index.ts
+
+      - name: Compile Function 6
+        run: deno compile --allow-net ./supabase/functions/openai-completion/index.ts
+
+      - name: Compile Function 7
+        run: deno compile --allow-net ./supabase/functions/rescheduling/index.ts
 
       - name: Test Functions
         run: deno test --allow-none
