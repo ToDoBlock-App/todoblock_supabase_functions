@@ -1,8 +1,12 @@
 name: Test Deno Module
 
 on: 
-  push: '*'
-  pull_request: '*'
+  push:
+    branches: 
+      - '**' 
+  pull_request:
+    branches: 
+      - '**' 
 
 env:
   SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
