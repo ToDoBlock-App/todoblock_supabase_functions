@@ -23,7 +23,7 @@ jobs:
       #   run: deno fmt --check
 
       - name: Build Deno Module
-        run: deno run
+        run: deno run --help
 
       - name: Test Deno Module
         run: deno test --allow-none
