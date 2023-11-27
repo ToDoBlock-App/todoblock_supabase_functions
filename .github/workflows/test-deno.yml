@@ -22,7 +22,7 @@ jobs:
       # - name: Lint Deno Module
       #   run: deno fmt --check
 
-      # Optimal wäre ein Build auch
+      # Optimal wäre ein Build auch, Entweder über Deno Run oder über SUPABASE CLI
 
       - name: Test Supabase Functions
         run: deno test --allow-none
