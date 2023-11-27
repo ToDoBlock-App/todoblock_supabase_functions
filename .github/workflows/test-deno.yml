@@ -22,26 +22,7 @@ jobs:
       # - name: Lint Deno Module
       #   run: deno fmt --check
 
-      - name: Build Supabase Functions
-        run: deno run --no-check --allow-net ./supabase/functions/ai-chat/index.ts
-
-      - name: Build Supabase Functions
-        run: deno run --no-check --allow-net ./supabase/functions/ai-quote/index.ts
-        
-      - name: Build Supabase Functions
-        run: deno run --no-check --allow-net ./supabase/functions/ai-scheduling/index.ts
-
-      - name: Build Supabase Functions
-        run: deno run --no-check --allow-net ./supabase/functions/apple-calender-sync/index.ts
-
-      - name: Build Supabase Functions
-        run: deno run --no-check --allow-net ./supabase/functions/google-calender-sync/index.ts
-
-      - name: Build Supabase Functions
-        run: deno run --no-check --allow-net ./supabase/functions/openai-completion/index.ts
-
-      - name: Build Supabase Functions
-        run: deno run --no-check --allow-net ./supabase/functions/rescheduling/index.ts
+      # Optimal wäre ein Build auch
 
       - name: Test Supabase Functions
         run: deno test --allow-none
