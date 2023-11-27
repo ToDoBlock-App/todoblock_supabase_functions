@@ -1,12 +1,8 @@
 name: Test Deno Module
 
-on:
-  push:
-    branches: 
-      - '*'
-  pull_request:
-    branches: 
-      - '*'
+on: [push, pull_request]
+  workflow_dispatch
+
 
 env:
   SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
